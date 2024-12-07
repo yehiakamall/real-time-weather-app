@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+/* Universal Reset */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-weight: 200;
 }
-body{
-    font-family: "poppins" , sans-serif;
+
+/* Body Styles */
+body {
+    font-family: "Poppins", sans-serif;
     background-image: url(../images/Atlantic-Beach_Terry-Ward-1600x1200.jpg);
     background-size: cover;
     background-position: center;
@@ -15,131 +17,142 @@ body{
     height: 100vh;
     color: #fff;
 }
-.container{
-    padding: 20px 70px;
+
+/* Container */
+.container {
+    padding: 20px 5%;
     color: #fff;
 }
-.current-info{
+
+/* Current Info */
+.current-info {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.data-container{
-    font-weight: 300;
 
+/* Responsive Current Info */
+@media screen and (max-width: 768px) {
+    .current-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .place-container {
+        text-align: center;
+        margin-top: 20px;
+    }
 }
-.data-container .time{
-    font-size: 70px;
-    }
-.data-container .time .pm-am{
-    font-size: 30px;
-    font-weight: 100;
-}
-.data-container .date{
-    font-size: 30px;    
-    }
-.place-container{
-    text-align: end;
-    font-size: 35px;
-    font-weight: 100;
-    }
-.futer-forcast{
+
+.futer-forcast {
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     bottom: 0;
-    display: flex;
-    color: #fff;
     width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-.futer-forcast .weather-forecast{
-   
-  
     display: flex;
-    color: #fff;
-    /* width: 100%; */
-    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 15px;
     justify-content: center;
-   
+    align-items: center;
 }
-.futer-forcast .today{
- 
+
+.weather-forecast {
     display: flex;
-   
- 
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
-    border: #eee solid 1px;
-    border-radius: 50px;
 }
-.futer-forcast .today .others{
- 
-    /* display: flex;
-   
- 
-    align-items: center;
-    justify-content: center; */
-    width: 200px;
-}
-.futer-forcast .today .day{
 
-    padding: 5px 15px;
-    background-color: #3c3c44;
-    border-radius: 50px;
-    text-align: center;
-    width: 100px;
-}
-.futer-forcast .today .temp{
-
-   font-size: 20px;
-   padding-top: 15px;
-
-}
-.weather-forecast .wither-forecast-item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 10px;
-    border: 1px solid #eee;
+.weather-forecast .wither-forecast-item {
+    flex: 1 1 100px;
+    max-width: 120px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
     border-radius: 10px;
-    padding: 5px;
+    text-align: center;
 }
-.weather-forecast .wither-forecast-item .day{
-   padding: 5px 15px;
-   background-color: #3c3c44;
-   border-radius: 50px;
-   text-align: center;
-}
-.weather-forecast .wither-forecast-item .temp{
- font-weight: 100;
-}
-@media screen and (max-width:768px) {
-    .futer-forcast{
-        justify-content: start;
-        align-items: none;
-        overflow-y: scroll;
+
+@media screen and (max-width: 768px) {
+    .futer-forcast {
+        overflow-x: auto;
+        flex-wrap: nowrap;
     }
 }
 
-.search-container{
+.futer-forcast .today {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+/* Search Bar */
+.search-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin: 20px 0;
 }
-.search-container input{
-    width: 30%;
-    height: 40px ;
-    border: none;
-    border-radius: 50px 0  0 50px;
 
-}
-.search-container button{
+.search-container input {
+    width: 60%;
+    max-width: 400px;
+    min-width: 200px;
     height: 40px;
-   width: 40px;
-   border: none;
-   background-color: burlywood;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    padding: 0 10px;
+}
 
+.search-container button {
+    height: 40px;
+    width: 50px;
+    border: none;
+    background-color: burlywood;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .search-container input {
+        width: 80%;
+    }
+
+    .search-container button {
+        width: 40px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.data-container .time {
+    font-size: 50px;
+}
+
+.data-container .date {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    .data-container .time {
+        font-size: 40px;
+    }
+
+    .data-container .date {
+        font-size: 16px;
+    }
+
+    .futer-forcast .today .temp {
+        font-size: 16px;
+    }
+
+    .place-container {
+        font-size: 20px;
+    }
 }
